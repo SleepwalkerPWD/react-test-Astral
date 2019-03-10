@@ -107,13 +107,13 @@ export default class ViewPost extends Component {
                         </>
                         
                     ))}
-
+                    <div>
+                        <Link className="view-button" to="/">
+                            View all posts
+                        </Link>
+                    </div> 
                 </div>
-                <div>
-                    <Link className="view-button" to="/">
-                        View all posts
-                    </Link>
-                </div> 
+
             </>
        );
    }
