@@ -94,7 +94,7 @@ export default class AllPosts extends Component {
                     
                 ))}
                 <div>
-                    <a className="allPosts-button-down" href="#">
+                    <a className="allPosts-button-down" href='/'>
                         More posts
                     </a>
                 </div>    

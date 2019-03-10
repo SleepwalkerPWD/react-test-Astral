@@ -57,10 +57,7 @@ export default class ViewPost extends Component {
     render() {
         
         const { postUsers, onePost, comments, isLoaded } = this.state;
-        
-        console.log(postUsers);
 
-        
         if(!isLoaded) {
             return  <div className="view-spinner">
                         <img src={spinner} alt='spinner'/>

@@ -33,7 +33,7 @@ export default class Sidebar extends Component {
                 </nav>
                 <div className="line-down"></div>
                 <div className="left-icons-facebook">
-                    <a href="https://facebook.com" target="_blank">
+                    <a href="https://facebook.com" target="_blank" rel="noopener noreferrer">
                         <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M17.7778 0H2.22222C0.962963 0 0 0.962963 0 2.22222V17.7778C0 19.037 0.962963 20 2.22222 
                             20H10V12.2222H7.77778V9.48148H10V7.18518C10 4.81481 11.3333 3.11111 14.1481 3.11111H16.1481V6H14.8148C13.7037
@@ -43,7 +43,7 @@ export default class Sidebar extends Component {
                     </a>
                 </div>
                 <div className="left-icons-instagram">
-                    <a href="https://instagram.com" target="_blank">
+                    <a href="https://instagram.com" target="_blank" rel="noopener noreferrer">
                         <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M15.9216 10.0787C15.9216 13.3858 13.2549 16.1417 9.88235 16.1417C6.5098 16.1417 3.92157 13.3858 3.92157 
                             10.0787C3.92157 9.68504 3.92157 9.29134 4.07843 8.89764H0V16.9291C0 18.6614 1.41176 20 3.05882 20H16.7059C18.4314 
@@ -56,7 +56,7 @@ export default class Sidebar extends Component {
                     </a>
                 </div>
                 <div className="left-icons-github">
-                    <a href="https://github.com" target="_blank">
+                    <a href="https://github.com" target="_blank" rel="noopener noreferrer">
                         <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M9.96416 0C4.51613 0 0 4.55622 0 10.2148C0 14.6975 2.86738 18.5923 6.81004 19.9151C7.31183 19.9886 7.4552
                             19.6946 7.4552 19.4007V17.637C4.6595 18.2249 4.08602 16.2407 4.08602 16.2407C3.65591 15.0649 3.01075 14.771 3.01075 
@@ -72,7 +72,7 @@ export default class Sidebar extends Component {
                     </a>
                 </div>
                 <div className="left-icons-twitter">
-                    <a href="https://twitter.com" target="_blank">
+                    <a href="https://twitter.com" target="_blank" rel="noopener noreferrer">
                         <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M17.971 5V5.625C17.971 12.3214 13.8406 20 6.30435 20C3.98551 20 1.81159 19.1964 0 17.7679C0.289855
                             17.7679 0.652174 17.8571 1.01449 17.8571C2.97101 17.8571 4.71015 17.0536 6.08696 15.7143C4.27536 
