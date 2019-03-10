@@ -1,0 +1,96 @@
+//Колонка справа - с данными из api
+.allPosts__right-posts
+    position: relative;
+    width: 953px;
+    margin: 40px 0 37px 50px;
+.allPosts__wrapper-right
+    width: 1037px;
+    height: 2002px;
+    left: 403px;
+    top: 0px;
+    & h1
+        font-family: Roboto;
+        font-style: normal;
+        font-weight: normal;
+        line-height: normal;
+        font-size: 36px;
+        color: #333333;
+        &:first-letter
+            text-transform: uppercase; 
+    & p
+        font-family: Roboto;
+        font-style: normal;
+        font-weight: normal;
+        line-height: normal;
+        padding-bottom: 12px;
+        font-size: 14px;
+        color: #000000;
+        &:first-letter
+            text-transform: uppercase; 
+    & .allPosts__button
+        padding-top: 15px;
+        padding-bottom: 20px;
+    & .allPosts__button-viewPost
+        padding: 9px 54px;
+        width: 230px;
+        height: 35px;
+        background: white;
+        cursor: pointer;
+        border: 1px solid #D3D3D3;
+        box-sizing: border-box;
+        border-radius: 20px;
+        text-decoration: none;
+        font-family: Roboto;
+        font-style: normal;
+        font-weight: normal;
+        line-height: normal;
+        font-size: 14px;
+        color: #000000;
+        &:hover
+            border-color:  #333333;
+            opacity: 0.88;
+            transition: 0.2s ease-out;
+    & .allPosts-right-line
+        border: 0.5px solid #D3D3D3;
+        margin-bottom: 37px;
+        margin-left: 50px;
+.allPosts__wrapper-right:nth-child(7) div
+    margin: 188px 0 37px 50px;
+.allPosts-right-data
+    margin-top: 15px;
+    margin-bottom: 15px;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    line-height: normal;
+    font-size: 14px;
+    color: #969696;
+//Нижняя кнопка
+.allPosts-button-down
+    padding: 17px 59px;
+    position: absolute;
+    left: 835px;
+    border: 1px solid #D3D3D3;
+    box-sizing: border-box;
+    border-radius: 3px;
+    color: #000000;
+    background: #ffffff;
+    cursor: pointer;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    line-height: normal;
+    font-size: 14px;
+    text-decoration: none;
+    text-align: center;
+    transition: 0.2s ease-out;
+    &:hover
+        color: #ffffff;
+        border-color: #FFFFFF;
+        box-shadow: 200px 0 0 0 rgba(51, 51, 51, 0.67) inset;
+.allPosts-spinner
+    margin-top: 200px;
+    margin-left: 350px;
+    & img
+        width: 300px;
+        height: 300px;
