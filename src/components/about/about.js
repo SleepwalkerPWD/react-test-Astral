@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import fetchApi from '../../service/fetchApi';
 import bg from '../../img/about/bg.jpg';
 import Sidebar from '../sidebar';
 
@@ -7,10 +6,7 @@ import './about.sass';
 
 export default class About extends Component {
 
-    fetchApi = new fetchApi();
-
     render() {
-                // console.log(this.fetchApi.getPost());
 
         return (
             <div className='about'>

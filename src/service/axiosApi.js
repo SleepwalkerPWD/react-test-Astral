@@ -1,17 +1,16 @@
-export default class FetchApi {
+import axios from 'axios';
+export default class AxiosApi {
     constructor() {
         this._apiBase = 'https://jsonplaceholder.typicode.com';
     }
 
     getResource = async (url) => {
-        const res = await fetch(`${this._apiBase}${url}`);
-    
-        if (!res.ok) {
-            throw new Error(`Could not fetch ${url}`
-             + `, received ${res.status}`);
-        }
-       
-        return await res.json();
+            try {
+                const { data } = await axios.get(`${this._apiBase}${url}`);
+                return data;
+            } catch (e) {
+                throw new Error(e);
+            }
     }
 
     getPosts = async () => {

@@ -17,7 +17,7 @@ export default class App extends Component {
                   <Route path='/about' component={About} />
                   <Route path='/posts/:postid' render={
                         ({match}) =>{
-                            console.log(match);
+
                             const {postid} = match.params;
                             return <SeparatePost id={postid}/>}}
                    />

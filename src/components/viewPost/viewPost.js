@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import fetchApi from '../../service/fetchApi';
+import axiosApi from '../../service/axiosApi';
 import spinner from '../../img/spinner/spinner.gif'
 import {Link} from 'react-router-dom';
 
@@ -7,7 +7,7 @@ import './viewPost.sass';
 
 export default class ViewPost extends Component {
     
-    fetchApi = new fetchApi();
+    axiosApi = new axiosApi();
 
     constructor(props){
         super(props);
@@ -28,7 +28,7 @@ export default class ViewPost extends Component {
         }
         
  
-        this.fetchApi.getComments()
+        this.axiosApi.getComments()
         .then( (comments) => {
             
             this.setState ({
@@ -37,7 +37,7 @@ export default class ViewPost extends Component {
             })
         })
 
-        this.fetchApi.getPost(postId)
+        this.axiosApi.getPost(postId)
             .then( (onePost) => {
 
                 this.setState ({
@@ -45,7 +45,7 @@ export default class ViewPost extends Component {
                 })
             })
             
-        this.fetchApi.getUsers()
+        this.axiosApi.getUsers()
             .then( (postUsers) => {
 
                 this.setState ({

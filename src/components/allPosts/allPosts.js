@@ -2,13 +2,13 @@ import React, { Component } from 'react';
 import spinner from '../../img/spinner/spinner.gif'
 import {Link} from 'react-router-dom';
 
-import fetchApi from '../../service/fetchApi';
+import axiosApi from '../../service/axiosApi';
 
 import './allPosts.sass';
 
 export default class AllPosts extends Component {
 
-    fetchApi = new fetchApi();
+    axiosApi = new axiosApi();
 
     constructor(props){
         super(props);
@@ -20,7 +20,7 @@ export default class AllPosts extends Component {
         
     componentDidMount() {
         
-        this.fetchApi.getPosts()
+        this.axiosApi.getPosts()
             .then( (items) => {
 
                 this.setState ({
@@ -28,6 +28,9 @@ export default class AllPosts extends Component {
                     isLoaded: true,
                 })
             })
+            .catch ((e) => {
+                console.log(e);
+            });
     }
 
     visiblePost(items) {
