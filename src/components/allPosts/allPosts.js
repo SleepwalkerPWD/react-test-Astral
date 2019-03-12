@@ -1,36 +1,16 @@
 import React, { Component } from 'react';
 import spinner from '../../img/spinner/spinner.gif'
 import {Link} from 'react-router-dom';
-
-import axiosApi from '../../service/axiosApi';
+import { connect } from 'react-redux';
+import { itemsAxiosData } from '../../actions/items';
 
 import './allPosts.sass';
 
-export default class AllPosts extends Component {
+class AllPosts extends Component {
 
-    axiosApi = new axiosApi();
-
-    constructor(props){
-        super(props);
-        this.state = {
-            items: [],
-            isLoaded: false,
-        }
-    }
-        
+    
     componentDidMount() {
-        
-        this.axiosApi.getPosts()
-            .then( (items) => {
-
-                this.setState ({
-                    items,
-                    isLoaded: true,
-                })
-            })
-            .catch ((e) => {
-                console.log(e);
-            });
+        this.props.itemsAxiosData();        
     }
 
     visiblePost(items) {
@@ -62,22 +42,22 @@ export default class AllPosts extends Component {
 
     render() {
 
-        const { items, isLoaded } = this.state;
-
-        if(!isLoaded) {
+        const { posts, isLoaded } = this.props;
+       
+        if(isLoaded) {
             return  <div className="allPosts-spinner">
                         <img src={spinner} alt='spinner'/>
                     </div>
         }
-
-        const visibleItem = this.visiblePost( items );
+        
+        const visibleItem = this.visiblePost( posts );
 
         return (
             <div className="allPosts__wrapper-right">
-                {visibleItem.map((item) => (
+                {visibleItem.map((item, id) => (
                    
                     <>
-                        <div className="allPosts__right-posts" key={item.id}>
+                        <div className="allPosts__right-posts" key={id}>
                             
                             <h1>{item.title}</h1>
                             <div className="allPosts-right-data">
@@ -105,3 +85,13 @@ export default class AllPosts extends Component {
         );
     }
 }
+
+const mapStateToProps = (state) => {
+
+    return {
+        posts: state.posts,
+        isLoaded: state.isLoaded
+    };
+};
+
+export default connect(mapStateToProps, {itemsAxiosData})(AllPosts);

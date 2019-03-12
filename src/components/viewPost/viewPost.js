@@ -1,24 +1,13 @@
 import React, { Component } from 'react';
-import axiosApi from '../../service/axiosApi';
 import spinner from '../../img/spinner/spinner.gif'
 import {Link} from 'react-router-dom';
+import { connect } from 'react-redux';
+import { itemsAxiosComments, itemsAxiosUsers, itemsAxiosPost } from '../../actions/items';
 
 import './viewPost.sass';
 
-export default class ViewPost extends Component {
-    
-    axiosApi = new axiosApi();
+class ViewPost extends Component {
 
-    constructor(props){
-        super(props);
-        this.state = {
-            postUsers: [],
-            onePost: [],
-            comments: [],
-            isLoaded: false,
-        }
-    }
-        
     componentDidMount() {
         
         const {postId} = this.props;
@@ -27,38 +16,17 @@ export default class ViewPost extends Component {
             return;
         }
         
- 
-        this.axiosApi.getComments()
-        .then( (comments) => {
-            
-            this.setState ({
-                comments,
-                isLoaded: true,
-            })
-        })
+        this.props.itemsAxiosComments();
+        this.props.itemsAxiosUsers();
+        this.props.itemsAxiosPost(postId);
 
-        this.axiosApi.getPost(postId)
-            .then( (onePost) => {
-
-                this.setState ({
-                    onePost
-                })
-            })
-            
-        this.axiosApi.getUsers()
-            .then( (postUsers) => {
-
-                this.setState ({
-                    postUsers
-                })
-            })
     }
 
     render() {
         
-        const { postUsers, onePost, comments, isLoaded } = this.state;
+        const { onePost, users, comments, isLoaded } = this.props;
 
-        if(!isLoaded) {
+        if(isLoaded) {
             return  <div className="view-spinner">
                         <img src={spinner} alt='spinner'/>
                     </div>
@@ -77,10 +45,11 @@ export default class ViewPost extends Component {
 
                     </div>
                     {/* Комментарии */}
-                    {comments.map((comment) => (
+                    {comments.map((comment, item) => (
                         
                         <>
-                            <div className="view-comments" key={comment.id}>
+                        
+                            <div className="view-comments" key={item}>
                                 <div>
                                     <h3>{comment.postId === onePost.userId ? comment.name : null}</h3>
                                     <p>{comment.postId === onePost.userId ? comment.body : null}</p>
@@ -91,10 +60,10 @@ export default class ViewPost extends Component {
                         
                     ))}
                     {/* Автор поста */}
-                    {postUsers.map((user) => (
+                    {users.map((user, item) => (
                         
                         <>
-                            <div className="view-user" key={user.id}>
+                            <div className="view-user" key={item}>
                                 <div>{onePost.userId === user.id ? user.name : null}</div>
                                 <div>{onePost.userId === user.id ? user.username : null}</div>
                                 <div>{onePost.userId === user.id ? user.phone : null}</div>
@@ -115,3 +84,15 @@ export default class ViewPost extends Component {
        );
    }
 }
+
+const mapStateToProps = (state) => {
+
+    return {
+        comments: state.comments,
+        isLoaded: state.isLoaded,
+        users: state.users,
+        onePost: state.onePost
+    };
+};
+
+export default connect(mapStateToProps, { itemsAxiosUsers, itemsAxiosComments, itemsAxiosPost } )(ViewPost);
