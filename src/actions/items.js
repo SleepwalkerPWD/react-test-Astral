@@ -13,13 +13,6 @@ export function itemsIsLoading(bool) {
     };
 }
 
-export function itemsHasErrored(bool) {
-    return {
-        type: 'ITEMS_HAS_ERRORED',
-        hasErrored: bool
-    };
-}
-
 export function itemsAxiosPostsSuccess(posts) {
     return {
         type: 'ITEMS_AXIOS_POSTS_SUCCESS',
